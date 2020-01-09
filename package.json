@@ -1,0 +1,26 @@
+{
+  "name": "veveal",
+  "repository": "git@github.com:boenfu/veveal.git",
+  "author": "boenfu <1997@boenfu.cn>",
+  "license": "MIT",
+  "scripts": {
+    "plugin-patch": "cd plugin && npm version patch && npm publish"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "rules": {
+      "no-console": "off"
+    },
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "veveal",
+  "version": "0.1.0",
+  "description": "Easy vue scroll reveal by animate.css",
+  "author": "boenfu",
+  "main": "lib/plugin.js",
+  "module": "lib/plugin.js",
+  "types": "lib/plugin.d.ts",
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "animate",
+    "scroll-reveal",
+    "reveal"
+  ],
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "prepublish": "yarn build",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "animate.css": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boenfu/veveal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/boenfu/veveal/issues"
+  },
+  "homepage": "https://github.com/boenfu/veveal#readme"
+}
