@@ -14,5 +14,5 @@
     "skipLibCheck": true,
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["./src", "shims-vue.d.ts"]
+  "include": ["./src"]
 }
