@@ -1,7 +1,8 @@
-import "animate.css";
+import { animate } from "./animate";
+import { Observer } from "./observer";
 
 export default {
-  install: function(Vue: any) {
+  install: function(Vue: any, _options: object) {
     Vue.config.productionTip = false;
 
     const modifierToValueDict = {
@@ -24,50 +25,24 @@ export default {
 
     type Modifiers = { [key in ModifierKeys]: true };
 
+    let observer = new Observer<string[]>({}, [animate]);
+
     Vue.directive("veveal", {
       inserted: function(
         element: HTMLElement,
-        { modifiers }: { modifiers: Modifiers }
+        { modifiers, value }: { modifiers: Modifiers; value: unknown }
       ) {
+        if (value && typeof value !== "string") {
+          throw TypeError("[veveal]: Directive value must be string ");
+        }
+
         modifiers as Modifiers;
 
-        let intersectionObserver = new IntersectionObserver(function(entries) {
-          if (
-            // temp handler
-            entries[0].isIntersecting &&
-            !element.dataset.veveal
-          ) {
-            animateCSS(
-              entries[0].target as HTMLElement,
-              Object.keys(modifiers).map(
-                key =>
-                  modifierToValueDict[(key as unknown) as ModifierKeys] || key
-              ),
-              () => (element.dataset.veveal = "true")
-            );
-          }
-        });
+        let names = [...Object.keys(modifiers), value].map(
+          key => modifierToValueDict[(key as unknown) as ModifierKeys] || key
+        );
 
-        intersectionObserver.observe(element);
-
-        function animateCSS(
-          element: HTMLElement,
-          animationNames: string[],
-          callback?: () => void
-        ) {
-          element.classList.add("animated", ...animationNames);
-
-          function handleAnimationEnd() {
-            element.classList.remove("animated", ...animationNames);
-            element.removeEventListener("animationend", handleAnimationEnd);
-
-            if (callback) {
-              callback();
-            }
-          }
-
-          element.addEventListener("animationend", handleAnimationEnd);
-        }
+        observer.add(element, names);
       }
     });
   }

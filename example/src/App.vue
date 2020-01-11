@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld v-veveal.fadeInDown msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld v-veveal.fadeInUp="'fadeInDown'" msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
 
