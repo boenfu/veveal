@@ -18,6 +18,6 @@ export type ModifierKeys = keyof typeof MODIFIER_TO_VALUE_DICT;
 
 export type Modifiers = { [key in ModifierKeys]: true };
 
-export function getModifierValue(key: string): string {
-  return MODIFIER_TO_VALUE_DICT[(key as unknown) as ModifierKeys] ?? key;
+export function getModifierValue(key: string): string | undefined {
+  return MODIFIER_TO_VALUE_DICT[(key as unknown) as ModifierKeys];
 }
