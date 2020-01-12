@@ -7,12 +7,7 @@ export interface VevealOptions extends ObserverOptions {
 }
 
 export default {
-  install: function(
-    Vue: any,
-    options: VevealOptions = {
-      distance: 10
-    }
-  ) {
+  install: function(Vue: any, options: VevealOptions = {}) {
     let observer = new Observer<string[]>(options, [animate]);
 
     Vue.directive("veveal", {
