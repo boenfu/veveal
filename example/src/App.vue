@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/1.jpg" v-veveal.flash.infinite />
+    <img src="./assets/1.jpg" v-veveal.flash.d1 />
     <div>
       <img src="./assets/2.jpg" v-veveal.shake.infinite />
       <img src="./assets/3.jpg" v-veveal.tada.d1 />

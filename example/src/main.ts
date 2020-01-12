@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import plugin from "../../plugin/src/plugin";
 
-Vue.use(plugin, { distance: 200 });
+Vue.use(plugin);
 
 new Vue({
   render: h => h(App)
