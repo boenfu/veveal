@@ -1,4 +1,4 @@
-[English](./README.EN.md) | 简体中文
+English | [简体中文](./README.md)
 
 <p align="center"><img width="180" src="./logo.png"></p>
 <p align="center">
@@ -9,9 +9,9 @@
   <a href="http://makeapullrequest.com"><img alt="PRS" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a>
 </p>
 
-<h3 align="center">veveal - 使用指令轻松处理入帘动画</h3>
+<h3 align="center">veveal - Easily handle curtain-entry animations with vue directive</h3>
 
-## 安装
+## Install
 
 ```shell
 npm install veveal --save
@@ -19,9 +19,9 @@ npm install veveal --save
 yarn add veveal
 ```
 
-## 用法
+## Usage
 
-` main.js `
+`main.js` 
 
 ```javascript
 import veveal from 'veveal'
@@ -29,23 +29,23 @@ import veveal from 'veveal'
 Vue.use(veveal);
 ```
 
-在组件中
+your component
 
 ```typescript
 <HelloWorld v-veveal/>
 ```
 
-## 参数
+## Config
 
-### 插件设置
+### PluginOptions
 
-| **字段**  | 必选 | 类型   | 描述           |
-| --------- | ---- | ------ | -------------- |
-| animate   | 否   | String | 默认使用动画   |
-| threshold | 否   | Number | 动画触发的阈值 |
-| distance  | 否   | Number | 底部的距离     |
+| **Field** | **Required** | **Type** | **Description**               |
+| --------- | ------------ | -------- | ----------------------------- |
+| animate   | false        | String   | default animation name        |
+| threshold | false        | Number   | animation triggered threshold |
+| distance  | false        | Number   | distance from the bottom      |
 
-例如：
+e.g.
 
 ```typescript
 Vue.use(veveal, {
@@ -55,22 +55,22 @@ Vue.use(veveal, {
 });
 ```
 
-表示元素 `height` 有 `50%` 在页面底部  `100px ` 之上时触发动画
+Indicates that the element `height` has` 50% `which is triggered when it is above` 100px` at the bottom of the page
 
 
 
-### 修饰符
+### Modifier
 
-- 延迟 (秒)
+- delay (s)
   - `d1` `d2` `d3` `d4` `d5`
-- 速度
+- speed
   - `slow` `slower` `fast` `faster`
-- 次数
+- times
   - `infinite`
-- 动画
-  - 动画列表见 [animate.css](https://github.com/daneden/animate.css/#animations)
+- animation
+  - see [animate.css](https://github.com/daneden/animate.css/#animations)
 
-例如：
+e.g.
 
 ```typescript
 <HelloWorld v-veveal.d1.slow.infinite.fadeInUp/>
@@ -78,11 +78,11 @@ Vue.use(veveal, {
 
 
 
-### 指令值
+### Value
 
-除了使用修饰符描述动画，通过设置指令值也是有效的，需要动态设置的情况下能够发挥作用
+In addition to using modifiers to describe the animation, it is also effective to set the command value, which can be useful when dynamic settings are required.
 
-例如：
+e.g.
 
 ```typescript
 <HelloWorld v-for="i in 2" :key="i" v-veveal="i%2?'fadeInLeft':'fadeInRight'" />
