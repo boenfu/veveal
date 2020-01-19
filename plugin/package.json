@@ -1,6 +1,6 @@
 {
   "name": "veveal",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Easy vue scroll reveal by animate.css",
   "author": "boenfu",
   "main": "lib/plugin.js",
