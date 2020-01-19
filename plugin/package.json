@@ -25,7 +25,8 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "animate.css": "^3.7.2"
+    "animate.css": "^3.7.2",
+    "intersection-observer": "^0.7.0"
   },
   "repository": {
     "type": "git",

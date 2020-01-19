@@ -1,3 +1,4 @@
+import "intersection-observer";
 import { animate } from "./animate";
 import { Observer, ObserverOptions } from "./observer";
 import { Modifiers, getModifierValue } from "./modifier";
