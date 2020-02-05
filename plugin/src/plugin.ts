@@ -1,5 +1,6 @@
 import "intersection-observer";
 import { animate } from "./animate";
+import { before, after } from "./pre-opacity";
 import { Observer, ObserverOptions } from "./observer";
 import { Modifiers, getModifierValue } from "./modifier";
 
@@ -9,13 +10,15 @@ export interface VevealOptions extends ObserverOptions {
 
 export default {
   install: function(Vue: any, options: VevealOptions = {}) {
-    let observer = new Observer<string[]>(options, [animate]);
+    let observer = new Observer<string[]>(options, [after, animate]);
 
     Vue.directive("veveal", {
       inserted: function(
         el: HTMLElement,
         { modifiers, value }: { modifiers: Modifiers; value: unknown }
       ) {
+        before(el);
+
         let names: string[] = [];
 
         let defaultAnimate = options.animate;
